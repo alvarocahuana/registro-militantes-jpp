@@ -54,16 +54,32 @@ function App() {
               border: '1px solid rgba(255,255,255,0.8)'
             }}>
               <Link to="/" className="brand" style={{ gap: '1.25rem' }}>
-                <div style={{
-                  width: '64px', height: '64px',
-                  borderRadius: '50%',
-                  border: '5px solid var(--jpp-green)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'var(--jpp-red)', fontSize: '2.2rem', fontWeight: 900,
-                  lineHeight: 1, paddingTop: '2px', backgroundColor: 'white'
-                }}>
-                  JP
+                <div style={{ display: 'flex', alignItems: 'center', gap: '-10px' }}>
+                  <div style={{
+                    width: '64px', height: '64px',
+                    borderRadius: '50%',
+                    border: '4px solid var(--jpp-green)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'var(--jpp-red)', fontSize: '2.2rem', fontWeight: 900,
+                    lineHeight: 1, paddingTop: '2px', backgroundColor: 'white',
+                    position: 'relative', zIndex: 2
+                  }}>
+                    JP
+                  </div>
+                  <div style={{
+                    width: '64px', height: '64px',
+                    borderRadius: '50%',
+                    border: '4px solid white',
+                    overflow: 'hidden',
+                    backgroundColor: 'white',
+                    marginLeft: '-15px',
+                    position: 'relative', zIndex: 1,
+                    boxShadow: '4px 0 10px rgba(0,0,0,0.1)'
+                  }}>
+                    <img src="/candidato.jpg" alt="César Hugo Tito Rojas" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                  </div>
                 </div>
+
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                   <div style={{ lineHeight: 1, display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
                     <span style={{ fontSize: '1.8rem', color: 'var(--jpp-green)', fontWeight: 900, letterSpacing: '-0.5px' }}>JUNTOS</span>
