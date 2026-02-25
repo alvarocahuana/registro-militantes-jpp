@@ -245,23 +245,29 @@ h6 {
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 0.5rem;
   align-items: center;
 }
 
 .nav-link {
-  color: var(--text-muted);
+  color: var(--text-main);
   text-decoration: none;
-  font-weight: 500;
-  transition: color var(--transition-fast);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all var(--transition-fast);
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
 }
 
 .nav-link:hover,
 .nav-link.active {
   color: var(--jpp-red);
+  background-color: var(--jpp-red-light);
 }
 
 /* Footer */
