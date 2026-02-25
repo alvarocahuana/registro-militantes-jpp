@@ -10,6 +10,10 @@ export default function RegistrationForm() {
         nombres: '',
         apellidoPaterno: '',
         apellidoMaterno: '',
+        telefono: '',
+        departamento: '',
+        provincia: '',
+        distrito: '',
     });
     const [foto, setFoto] = useState<string>('');
     const [success, setSuccess] = useState(false);
@@ -44,7 +48,7 @@ export default function RegistrationForm() {
 
         setIsSubmitting(true);
 
-        const { dni, nombres, apellidoPaterno, apellidoMaterno } = formData;
+        const { dni, nombres, apellidoPaterno, apellidoMaterno, telefono, departamento, provincia, distrito } = formData;
 
         const newMilitante: Militante = {
             id: crypto.randomUUID(),
@@ -52,6 +56,10 @@ export default function RegistrationForm() {
             nombres,
             apellidoPaterno,
             apellidoMaterno,
+            telefono,
+            departamento,
+            provincia,
+            distrito,
             fotoBase64: foto,
             fechaRegistro: new Date().toISOString()
         };
@@ -62,7 +70,7 @@ export default function RegistrationForm() {
 
             // Mostrar éxito y resetear formulario
             setSuccess(true);
-            setFormData({ dni: '', nombres: '', apellidoPaterno: '', apellidoMaterno: '' });
+            setFormData({ dni: '', nombres: '', apellidoPaterno: '', apellidoMaterno: '', telefono: '', departamento: '', provincia: '', distrito: '' });
             setFoto('');
             if (fileInputRef.current) fileInputRef.current.value = '';
 
@@ -199,6 +207,64 @@ export default function RegistrationForm() {
                             style={{ textTransform: 'capitalize' }}
                             required
                         />
+                    </div>
+
+                    <div className="form-group">
+                        <label className="form-label">Teléfono / Celular</label>
+                        <input
+                            type="tel"
+                            name="telefono"
+                            className="form-input"
+                            placeholder="Ej. 987654321"
+                            value={formData.telefono}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+
+                    <div className="form-group" style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1.5rem', backgroundColor: 'var(--bg-color)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                        <div style={{ gridColumn: '1 / -1', marginBottom: '-0.5rem' }}>
+                            <h4 style={{ color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: 600, margin: 0 }}>Lugar de Radicación</h4>
+                        </div>
+                        <div>
+                            <label className="form-label" style={{ fontSize: '0.85rem' }}>Departamento</label>
+                            <input
+                                type="text"
+                                name="departamento"
+                                className="form-input"
+                                placeholder="Ej. Puno"
+                                value={formData.departamento}
+                                onChange={handleInputChange}
+                                style={{ textTransform: 'capitalize' }}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label className="form-label" style={{ fontSize: '0.85rem' }}>Provincia</label>
+                            <input
+                                type="text"
+                                name="provincia"
+                                className="form-input"
+                                placeholder="Ej. San Román"
+                                value={formData.provincia}
+                                onChange={handleInputChange}
+                                style={{ textTransform: 'capitalize' }}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label className="form-label" style={{ fontSize: '0.85rem' }}>Distrito</label>
+                            <input
+                                type="text"
+                                name="distrito"
+                                className="form-input"
+                                placeholder="Ej. Juliaca"
+                                value={formData.distrito}
+                                onChange={handleInputChange}
+                                style={{ textTransform: 'capitalize' }}
+                                required
+                            />
+                        </div>
                     </div>
                 </div>
 

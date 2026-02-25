@@ -32,8 +32,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
-        <header className="header glass">
-          <div className="container header-container">
+        <header className="header glass" style={{ paddingTop: 0 }}>
+          <div style={{ height: '6px', background: 'linear-gradient(to right, var(--jpp-red) 33.3%, white 33.3%, white 66.6%, var(--jpp-green) 66.6%)', width: '100%' }}></div>
+          <div className="container header-container" style={{ paddingTop: '1rem' }}>
             <Link to="/" className="brand">
               <span className="brand-icon" style={{ fontSize: '2rem' }}>JP</span>
               <div>

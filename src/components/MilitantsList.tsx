@@ -134,6 +134,7 @@ export default function MilitantsList() {
                             <th style={{ padding: '1.25rem 2rem', fontWeight: 600, color: 'var(--text-muted)' }}>Foto</th>
                             <th style={{ padding: '1.25rem 2rem', fontWeight: 600, color: 'var(--text-muted)' }}>DNI</th>
                             <th style={{ padding: '1.25rem 2rem', fontWeight: 600, color: 'var(--text-muted)' }}>Apellidos y Nombres</th>
+                            <th style={{ padding: '1.25rem 2rem', fontWeight: 600, color: 'var(--text-muted)' }}>Contacto y Ubicación</th>
                             <th style={{ padding: '1.25rem 2rem', fontWeight: 600, color: 'var(--text-muted)' }}>Fecha Registro</th>
                             {isAdmin && <th style={{ padding: '1.25rem 2rem', fontWeight: 600, color: 'var(--text-muted)', textAlign: 'right' }}>Acciones</th>}
                         </tr>
@@ -141,7 +142,7 @@ export default function MilitantsList() {
                     <tbody>
                         {loading ? (
                             <tr>
-                                <td colSpan={isAdmin ? 5 : 4} style={{ padding: '4rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+                                <td colSpan={isAdmin ? 6 : 5} style={{ padding: '4rem', textAlign: 'center', color: 'var(--text-muted)' }}>
                                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
                                         <Loader2 size={32} className="animate-spin" color="var(--jpp-red)" />
                                         <p>Conectando con la base de datos...</p>
@@ -150,7 +151,7 @@ export default function MilitantsList() {
                             </tr>
                         ) : error ? (
                             <tr>
-                                <td colSpan={isAdmin ? 5 : 4} style={{ padding: '4rem', textAlign: 'center', color: 'var(--jpp-red)' }}>
+                                <td colSpan={isAdmin ? 6 : 5} style={{ padding: '4rem', textAlign: 'center', color: 'var(--jpp-red)' }}>
                                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
                                         <AlertCircle size={32} />
                                         <p>{error}</p>
@@ -172,6 +173,12 @@ export default function MilitantsList() {
                                             {militante.apellidoPaterno} {militante.apellidoMaterno}, <span style={{ fontWeight: 400, color: 'var(--text-muted)' }}>{militante.nombres}</span>
                                         </div>
                                     </td>
+                                    <td style={{ padding: '1.25rem 2rem', fontSize: '0.9rem' }}>
+                                        <div style={{ color: 'var(--text-main)', fontWeight: 500 }}>📱 {militante.telefono || 'No especificado'}</div>
+                                        <div style={{ color: 'var(--text-muted)', textTransform: 'capitalize', marginTop: '0.25rem' }}>
+                                            📍 {militante.distrito || '-'}, {militante.provincia || '-'}, {militante.departamento || '-'}
+                                        </div>
+                                    </td>
                                     <td style={{ padding: '1.25rem 2rem', color: 'var(--text-muted)' }}>
                                         {new Date(militante.fechaRegistro).toLocaleDateString('es-PE')}
                                     </td>
@@ -190,7 +197,7 @@ export default function MilitantsList() {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan={isAdmin ? 5 : 4} style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+                                <td colSpan={isAdmin ? 6 : 5} style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
                                     {searchTerm ? 'No se encontraron militantes que coincidan con la búsqueda.' : 'Aún no hay militantes registrados. ¡Ve a la sección de registro para empezar!'}
                                 </td>
                             </tr>

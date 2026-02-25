@@ -4,6 +4,10 @@ export interface Militante {
     nombres: string;
     apellidoPaterno: string;
     apellidoMaterno: string;
+    telefono: string;
+    departamento: string;
+    provincia: string;
+    distrito: string;
     fotoBase64: string;
     fechaRegistro: string;
 }
