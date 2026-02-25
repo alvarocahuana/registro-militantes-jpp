@@ -32,9 +32,14 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
-        <header className="header glass" style={{ paddingTop: 0 }}>
-          <div style={{ height: '6px', background: 'linear-gradient(to right, var(--jpp-red) 33.3%, white 33.3%, white 66.6%, var(--jpp-green) 66.6%)', width: '100%' }}></div>
-          <div className="container header-container" style={{ paddingTop: '1rem' }}>
+        <header className="header" style={{ position: 'relative', overflow: 'hidden', backgroundColor: 'white', borderBottom: '1px solid var(--border-color)' }}>
+          <div style={{
+            position: 'absolute',
+            top: 0, left: 0, right: 0, bottom: 0,
+            background: 'linear-gradient(110deg, var(--jpp-green) 0%, var(--jpp-green) 18%, transparent 18%, transparent 82%, var(--jpp-red) 82%, var(--jpp-red) 100%)',
+            zIndex: 0
+          }}></div>
+          <div className="container header-container" style={{ position: 'relative', zIndex: 1 }}>
             <Link to="/" className="brand">
               <span className="brand-icon" style={{ fontSize: '2rem' }}>JP</span>
               <div>
